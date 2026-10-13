@@ -17,6 +17,8 @@ import {
   FileText
 } from 'lucide-react';
 import { CampusNews } from '../../types';
+import campusGothicDusk from '../../assets/images/campus_gothic_dusk_1791899252124.jpg';
+import graduateSpotlight from '../../assets/images/graduate_spotlight_1791899282040.jpg';
 
 export const LandingPage: React.FC = () => {
   const { setCurrentView, showToast, news } = useAcademic();
@@ -37,7 +39,7 @@ export const LandingPage: React.FC = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('/src/assets/images/campus_gothic_dusk_1791899252124.jpg')`
+            backgroundImage: `url(${campusGothicDusk})`
           }}
         >
           {/* Deep gradient overlay for contrast and dark luxury feel */}
@@ -214,7 +216,7 @@ export const LandingPage: React.FC = () => {
             <div className="relative rounded-3xl overflow-hidden bg-[#0d1424] border border-white/10 shadow-2xl group">
               <div className="relative w-full h-[400px] sm:h-[460px]">
                 <img
-                  src="/src/assets/images/graduate_spotlight_1791899282040.jpg"
+                  src={graduateSpotlight}
                   alt="Wisudawan Terbaik Nusantara Institute of Technology"
                   className="w-full h-full object-cover object-top group-hover:scale-102 transition-transform duration-500"
                 />

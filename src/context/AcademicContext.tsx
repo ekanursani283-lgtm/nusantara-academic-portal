@@ -116,22 +116,26 @@ export const AcademicProvider: React.FC<{ children: ReactNode }> = ({ children }
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Ensure users have salts and password hashes
+        // Ensure users have salts, password hashes, and valid avatar paths
         const validatedUsers: User[] = (parsed.users || []).map((u: User) => {
-          if (!u.passwordHash || !u.salt) {
-            const initialMatch = INITIAL_USERS.find((init) => init.id === u.id || init.identifier === u.identifier);
+          let updatedUser = { ...u };
+          const initialMatch = INITIAL_USERS.find((init) => init.id === u.id || init.identifier === u.identifier);
+          if (updatedUser.avatar && updatedUser.avatar.startsWith('/src/assets/images/') && initialMatch?.avatar) {
+            updatedUser.avatar = initialMatch.avatar;
+          }
+          if (!updatedUser.passwordHash || !updatedUser.salt) {
             if (initialMatch && initialMatch.passwordHash) {
-              return { ...u, salt: initialMatch.salt, passwordHash: initialMatch.passwordHash };
+              return { ...updatedUser, salt: initialMatch.salt, passwordHash: initialMatch.passwordHash };
             }
             const fallbackSalt = generateSalt();
-            const fallbackPass = u.role === 'student' ? 'Mahasiswa123#' : u.role === 'lecturer' ? 'Dosen123#' : 'Admin123#';
+            const fallbackPass = updatedUser.role === 'student' ? 'Mahasiswa123#' : updatedUser.role === 'lecturer' ? 'Dosen123#' : 'Admin123#';
             return {
-              ...u,
+              ...updatedUser,
               salt: fallbackSalt,
               passwordHash: synchronousHash(fallbackPass, fallbackSalt)
             };
           }
-          return u;
+          return updatedUser;
         });
 
         return {

@@ -18,6 +18,7 @@ import {
   Calendar,
   AlertCircle
 } from 'lucide-react';
+import graduateSpotlight from '../../assets/images/graduate_spotlight_1791899282040.jpg';
 
 export const StudentDashboard: React.FC = () => {
   const { 
@@ -191,7 +192,7 @@ export const StudentDashboard: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center gap-5 relative z-10">
           <div className="relative shrink-0">
             <img
-              src={currentUser?.avatar || '/src/assets/images/graduate_spotlight_1791899282040.jpg'}
+              src={currentUser?.avatar || graduateSpotlight}
               alt={currentUser?.name}
               className="w-20 h-20 rounded-2xl object-cover ring-2 ring-blue-500/50 shadow-xl"
             />

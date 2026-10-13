@@ -1,5 +1,9 @@
 import { User, Course, Enrollment, Assignment, Submission, DiscussionTopic, AuditLog, CampusNews, AcademicEvent } from '../types';
 import { synchronousHash } from '../utils/crypto';
+import graduateSpotlight from '../assets/images/graduate_spotlight_1791899282040.jpg';
+import aiRoboticsLab from '../assets/images/ai_robotics_lab_1791899284126.jpg';
+import studentsCourtyard from '../assets/images/students_courtyard_1791899285559.jpg';
+import satelliteCleanroom from '../assets/images/satellite_cleanroom_1791899317434.jpg';
 
 export const INITIAL_USERS: User[] = [
   // 1. Primary Student (from reference image)
@@ -10,7 +14,7 @@ export const INITIAL_USERS: User[] = [
     role: 'student',
     email: 'andi.pratama@std.nusantara.ac.id',
     department: 'Teknik Informatika',
-    avatar: '/src/assets/images/graduate_spotlight_1791899282040.jpg',
+    avatar: graduateSpotlight,
     status: 'active',
     financialStatus: 'paid',
     scholarship: 'Beasiswa Unggulan',
@@ -461,7 +465,7 @@ export const INITIAL_DISCUSSIONS: DiscussionTopic[] = [
         authorId: 'usr_student_1',
         authorName: 'Andi Pratama S.',
         authorRole: 'student',
-        authorAvatar: '/src/assets/images/graduate_spotlight_1791899282040.jpg',
+        authorAvatar: graduateSpotlight,
         content: 'Bisa aktifkan addon ingress dulu dengan perintah `minikube addons enable ingress`, lalu beri jeda sekitar 60 detik sampai pod ingress-controller ready.',
         createdAt: '2026-10-13T06:25:00Z'
       },
@@ -557,7 +561,7 @@ export const CAMPUS_NEWS: CampusNews[] = [
     summary: 'Konsorsium peneliti NIT memimpin pengembangan jaringan sensor satelit dan pemodelan prediktif hidrometeorologi maritim kawasan khatulistiwa.',
     location: 'Lab Siber Gedung Rektorat',
     date: '13 Oktober 2026',
-    image: '/src/assets/images/ai_robotics_lab_1791899284126.jpg',
+    image: aiRoboticsLab,
     featured: true
   },
   {
@@ -568,7 +572,7 @@ export const CAMPUS_NEWS: CampusNews[] = [
     summary: 'Jalur seleksi prestasi riset mandiri dan beasiswa kemitraan industri teknologi kuantum telah resmi menerima berkas pendaftar baru.',
     location: 'Biro Admisi Kampus Barat',
     date: '12 Oktober 2026',
-    image: '/src/assets/images/students_courtyard_1791899285559.jpg'
+    image: studentsCourtyard
   },
   {
     id: 'news_3',
@@ -578,7 +582,7 @@ export const CAMPUS_NEWS: CampusNews[] = [
     summary: 'Pusat Rekayasa Antariksa NIT memamerkan prototipe bus satelit orbit rendah buatan mahasiswa untuk telekomunikasi kepulauan terluar.',
     location: 'Auditorium Sains Dirgantara',
     date: '11 Oktober 2026',
-    image: '/src/assets/images/satellite_cleanroom_1791899317434.jpg'
+    image: satelliteCleanroom
   }
 ];
 
