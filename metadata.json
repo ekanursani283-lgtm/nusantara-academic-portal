@@ -1,0 +1,6 @@
+{
+  "name": "Nusantara Institute of Technology - Academic Portal",
+  "description": "Official academic portal and campus hub for Nusantara Institute of Technology featuring Student, Lecturer, and Administrator roles, assignments, grading, discussions, and course records.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
